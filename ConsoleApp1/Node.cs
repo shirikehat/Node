@@ -13,23 +13,47 @@ namespace ConsoleApp1
         public Node(T value)
         {
             this.value = value;
-            next = null;
+            this.next = null;
         }
 
-        public Node(T value, Node<T> node)
+
+        public Node(T value, Node<T> next)
         {
-            this.value= value;
+            this.value = value;
             this.next = next;
         }
 
-        public T GetValue() { return value; }
-        public void SetValue(T value) { this.value = value;}
-        public Node<T> GetNext() { return next;}
-        public void SetNext(Node<T> next) {  this.next = next;}
 
+        public T GetValue()
+        {
+            return this.value;
+        }
+        public Node<T> GetNext()
+        {
+            return next;
+        }
+        public void SetValue(T value)
+        {
+            this.value = value;
+        }
+        public void SetNext(Node<T> next)
+        {
+            this.next = next;
+        }
         public bool HasNext()
         {
             return this.next != null;
         }
+
+
+        public override string ToString()
+        {
+            string str = string.Empty;
+            if (this.next == null)
+                return $"[{this.value}, next]=>null";
+            else
+                return $"[{this.value}, next]=>{this.next}";
+        }
+
     }
 }
