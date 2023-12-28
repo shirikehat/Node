@@ -87,6 +87,25 @@ namespace ConsoleApp1
         }
 
 
+        public static void AddToEnd<T>(Node<T> newNode, Node<T> lst)
+        {
+            while (lst.HasNext())
+            {
+                lst=lst.GetNext();
+            }
+            lst.SetNext(newNode);
+        }
+
+        public static void AddToMiddle<T>(Node<T> newNode, Node<T> lst)
+        {
+            while (lst.HasNext() && lst.GetNext().GetValue() < newNode.GetValue())
+            {
+                lst=lst.GetNext();
+            }
+            newNode.SetNext(lst.GetNext());
+            lst.SetNext(newNode);
+        }
+
 
         static void Main(string[] args)
         {
